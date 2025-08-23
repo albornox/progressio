@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressio - Soluciones Tecnológicas Empresariales | Colombia</title>
+    <meta name="description" content="Moderniza tu empresa con nuestras soluciones de comunicaciones unificadas, seguridad IT y automatización inteligente. +15 años transformando empresas en Colombia.">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/LzHWkGt/progressio-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/LzHWkGt/progressio-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/LzHWkGt/progressio-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/LzHWkGt/progressio-logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #2E5BBA;
+            --secondary-blue: #4A90E2;
+            --dark-blue: #1E4A9A;
+            --text-dark: #4A4A4A;
+            --text-medium: #7A7A7A;
+            --bg-light: #F5F5F5;
+            --success: #28A745;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-width: 12.5%; /* No más de 1/8 del header */
+        }
+        
+        /* CTAs */
+        .cta-button {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            color: var(--white);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--accent-orange);
+            border: 2px solid var(--accent-orange);
+            box-shadow: none;
+        }
+        
+        .cta-button.secondary:hover {
+            background: var(--accent-orange);
+            color: var(--white);
+        }
+        
+        :root {
+            --primary-blue: #2E5BBA;
+            --secondary-blue: #4A90E2;
+            --dark-blue: #1E4A9A;
+            --text-dark: #4A4A4A;
+            --text-medium: #7A7A7A;
+            --bg-light: #F5F5F5;
+            --success: #28A745;
+            --white: #FFFFFF;
+            --accent-orange: #FF6B35;
+            --accent-orange-hover: #E55A2B;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            text-align: left;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .hero-cta {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .hero-cta:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-orange);
+        }
+        
+        .stat p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px dashed rgba(255,255,255,0.3);
+            overflow: hidden;
+        }
+        
+        .video-placeholder {
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+        
+        .video-placeholder p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card .service-icon i {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+        
+        /* Specific icons for each service */
+        .service-communications i:before { content: "\f095"; } /* fa-phone-alt */
+        .service-security i:before { content: "\f3ed"; } /* fa-shield-alt */
+        .service-automation i:before { content: "\f544"; } /* fa-robot */
+        .service-software i:before { content: "\f121"; } /* fa-code */
+        .service-ecommerce i:before { content: "\f07a"; } /* fa-shopping-cart */
+        .service-infrastructure i:before { content: "\f6ff"; } /* fa-network-wired */
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-medium);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Social Proof Section */
+        .social-proof {
+            background: var(--bg-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .proof-stat {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .proof-stat h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .proof-stat p {
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+        }
+        
+        .cta-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .cta-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefits-list i {
+            color: var(--success);
+            margin-right: 1rem;
+        }
+        
+        /* Form */
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E5E5E5;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: var(--text-medium);
+            cursor: not-allowed;
+        }
+        
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--secondary-blue);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-blue);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+        
+                    @media (max-width: 1024px) {
+                .cta-button.header-cta {
+                    display: none; /* Ocultar en tablet */
+                }
+                
+                .logo img {
+                    height: 38px;
+                }
+                
+                .hero h1 {
+                    font-size: 3rem;
+                }
+                
+                .services-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .cta-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .video-container {
+                height: 250px;
+            }
+            
+            .video-placeholder i {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .proof-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .service-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .service-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        .service-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        .service-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+        
+        .service-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://i.ibb.co/LzHWkGt/progressio-logo.png" alt="Progressio - Soluciones Tecnológicas Empresariales">
+                </div>
+                <a href="#contacto" class="cta-button header-cta">Solicitar Consulta</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transformamos Tu Empresa con Tecnología de Última Generación</h1>
+                    <p>Soluciones integrales de comunicaciones, seguridad IT y automatización que reducen costos operativos hasta en un 40% y aumentan la productividad empresarial</p>
+                    
+                    <a href="#contacto" class="hero-cta">Obtener Consulta Gratuita</a>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Años de experiencia</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Empresas transformadas</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3>
+                            <p>Soporte especializado</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <i class="fas fa-video"></i>
+                        <p><strong>Video Testimonio</strong><br>
+                        Luis Albornoz presenta caso de éxito<br>
+                        o testimonio de cliente destacado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contacto" class="cta-button secondary">Solicitar Análisis Gratuito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Soluciones Tecnológicas</h2>
+                <p>Modernizamos tu infraestructura empresarial con tecnologías integradas que se adaptan al tamaño de tu empresa y presupuesto</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card service-communications">
+                    <div class="service-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Comunicaciones Unificadas</h3>
+                    <p>Centrales IPPBX Cloud, Call Centers inteligentes, videoconferencia y sistemas de comunicación convergente que conectan tu equipo desde cualquier lugar.</p>
+                </div>
+                
+                <div class="service-card service-security">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad & IT</h3>
+                    <p>Servidores empresariales, monitoreo 24/7, antivirus corporativo y mesas de ayuda especializada que protegen y optimizan tu operación.</p>
+                </div>
+                
+                <div class="service-card service-automation">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automatización Inteligente</h3>
+                    <p>Sistema Aingels con IA, CCTV analítico, control de acceso y automatización de procesos que revolucionan la seguridad empresarial.</p>
+                </div>
+                
+                <div class="service-card service-software">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desarrollo de Software</h3>
+                    <p>Aplicaciones web y móviles personalizadas, bases de datos empresariales y plataforma OSTicket para gestión eficiente de servicios.</p>
+                </div>
+                
+                <div class="service-card service-ecommerce">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Integrado</h3>
+                    <p>MarketHub conecta tus plataformas de venta online con tu sistema contable, eliminando procesos manuales y errores de facturación.</p>
+                </div>
+                
+                <div class="service-card service-infrastructure">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Infraestructura Física</h3>
+                    <p>Redes estructuradas, centros de datos, UPS empresariales y adecuaciones locativas que soportan tu transformación digital.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contacto" class="cta-button">Descubre Cómo Podemos Ayudarte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resultados que Hablan por Nosotros</h2>
+                <p>Más de 15 años transformando empresas colombianas con tecnología de vanguardia</p>
+            </div>
+            
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <h3>40%</h3>
+                    <p>Reducción promedio en costos operativos</p>
+                </div>
+                <div class="proof-stat">
+                    <h3>98%</h3>
+                    <p>Uptime en nuestros servicios Cloud</p>
+                </div>
+                <div class="proof-stat">
+                    <h3>60%</h3>
+                    <p>Mejora en productividad empresarial</p>
+                </div>
+                <div class="proof-stat">
+                    <h3>24/7</h3>
+                    <p>Soporte técnico especializado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Form -->
+    <section class="cta-section" id="contacto">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>¿Listo para Modernizar tu Empresa?</h2>
+                    <p>Obtén una consulta gratuita y descubre cómo podemos optimizar tu infraestructura tecnológica para impulsar el crecimiento de tu negocio.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Análisis gratuito de tu infraestructura actual</li>
+                        <li><i class="fas fa-check"></i> Propuesta personalizada sin compromiso</li>
+                        <li><i class="fas fa-check"></i> Implementación con soporte 24/7</li>
+                        <li><i class="fas fa-check"></i> ROI garantizado en 6 meses</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Solicita tu Consulta Gratuita</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido *</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Corporativo *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa *</label>
+                                <input type="text" id="empresa" name="empresa" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cargo">Cargo</label>
+                                <input type="text" id="cargo" name="cargo">
+                            </div>
+                            <div class="form-group">
+                                <label for="empleados">N° de Empleados</label>
+                                <select id="empleados" name="empleados">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="1-20">1-20 empleados</option>
+                                    <option value="21-50">21-50 empleados</option>
+                                    <option value="51-100">51-100 empleados</option>
+                                    <option value="101-500">101-500 empleados</option>
+                                    <option value="500+">500+ empleados</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servicio">Servicio de Interés</label>
+                            <select id="servicio" name="servicio">
+                                <option value="">¿En qué podemos ayudarte?</option>
+                                <option value="comunicaciones">Comunicaciones Unificadas</option>
+                                <option value="seguridad">Seguridad & IT</option>
+                                <option value="automatizacion">Automatización Inteligente</option>
+                                <option value="software">Desarrollo de Software</option>
+                                <option value="ecommerce">E-Commerce Integrado</option>
+                                <option value="infraestructura">Infraestructura Física</option>
+                                <option value="consultoria">Consultoría Integral</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Cuéntanos tu desafío tecnológico</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente qué necesitas mejorar en tu empresa..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span id="submitText">Solicitar Consulta Gratuita</span>
+                        </button>
+                        
+                        <div id="formMessage" class="form-message" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Progressio S.A.S.</h3>
+                    <p>Transformamos empresas con tecnología de vanguardia desde 2008. Somos tu aliado estratégico en la digitalización empresarial.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 lealbornoz@progressio.com.co</p>
+                    <p>🌐 www.progressio.com.co</p>
+                    <p>📍 Bogotá, Colombia</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#servicios">Comunicaciones Unificadas</a>
+                    <a href="#servicios">Seguridad & IT</a>
+                    <a href="#servicios">Automatización Inteligente</a>
+                    <a href="#servicios">Desarrollo de Software</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Cobertura</h3>
+                    <p>Atendemos toda Colombia con soporte local y especializado en cada región.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Progressio S.A.S. - Todos los derechos reservados. Soluciones tecnológicas empresariales en Colombia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const submitText = document.getElementById('submitText');
+            const messageDiv = document.getElementById('formMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Enviando...';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const templateParams = {
+                to_name: 'Luis Eduardo Albornoz',
+                from_name: formData.get('nombre') + ' ' + formData.get('apellido'),
+                from_email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                empresa: formData.get('empresa'),
+                cargo: formData.get('cargo') || 'No especificado',
+                empleados: formData.get('empleados') || 'No especificado',
+                servicio: formData.get('servicio') || 'Consultoría general',
+                mensaje: formData.get('mensaje') || 'Sin mensaje adicional',
+                reply_to: formData.get('email')
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    // Success
+                    messageDiv.className = 'form-message success';
+                    messageDiv.textContent = '¡Mensaje enviado con éxito! Te contactaremos dentro de las próximas 2 horas hábiles.';
+                    messageDiv.style.display = 'block';
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Track conversion (Google Analytics, Facebook Pixel, etc.)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                            'value': 1.0,
+                            'currency': 'COP'
+                        });
+                    }
+                    
+                }, function(error) {
+                    // Error
+                    messageDiv.className = 'form-message error';
+                    messageDiv.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente.';
+                    messageDiv.style.display = 'block';
+                    
+                    console.error('EmailJS error:', error);
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitText.textContent = 'Solicitar Consulta Gratuita';
+                });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form validation
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+        
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldType = field.type;
+            const fieldName = field.name;
+            
+            // Remove previous error state
+            field.classList.remove('error');
+            field.style.borderColor = '';
+            
+            // Check required fields
+            if (field.hasAttribute('required') && !value) {
+                showFieldError(field, 'Este campo es obligatorio');
+                return false;
+            }
+            
+            // Email validation
+            if (fieldType === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    showFieldError(field, 'Por favor, ingresa un email válido');
+                    return false;
+                }
+            }
+            
+            // Phone validation
+            if (fieldName === 'telefono' && value) {
+                const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,}$/;
+                if (!phoneRegex.test(value)) {
+                    showFieldError(field, 'Por favor, ingresa un teléfono válido');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        function showFieldError(field, message) {
+            field.classList.add('error');
+            field.style.borderColor = '#dc3545';
+            
+            // Show tooltip or message (optional)
+            field.title = message;
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .proof-stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Analytics and tracking
+        function trackEvent(category, action, label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+        }
+        
+        // Track form interactions
+        document.getElementById('email').addEventListener('focus', function() {
+            trackEvent('Form', 'start_form', 'email_focus');
+        });
+        
+        document.getElementById('servicio').addEventListener('change', function() {
+            trackEvent('Form', 'select_service', this.value);
+        });
+        
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                if (maxScroll >= 25 && maxScroll < 50) {
+                    trackEvent('Engagement', 'scroll_depth', '25_percent');
+                } else if (maxScroll >= 50 && maxScroll < 75) {
+                    trackEvent('Engagement', 'scroll_depth', '50_percent');
+                } else if (maxScroll >= 75) {
+                    trackEvent('Engagement', 'scroll_depth', '75_percent');
+                }
+            }
+        });
+        
+        // Video placeholder interaction (for future video implementation)
+        document.querySelector('.video-container').addEventListener('click', function() {
+            trackEvent('Video', 'placeholder_click', 'hero_video');
+            // Future: Initialize video player
+        });
+        
+        // Performance optimization
+        window.addEventListener('load', function() {
+            // Preload critical images
+            const criticalImages = [
+                'https://i.ibb.co/LzHWkGt/progressio-logo.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+        
+        // Service worker registration for offline support (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // navigator.registerServiceWorker('/sw.js'); // Uncomment if you have a service worker
+            });
+        }
+        
+        // Add error handling for EmailJS
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+        });
+        
+        // Form analytics
+        const formStartTime = Date.now();
+        
+        document.getElementById('contactForm').addEventListener('submit', function() {
+            const formCompletionTime = Date.now() - formStartTime;
+            trackEvent('Form', 'completion_time', Math.round(formCompletionTime / 1000) + '_seconds');
+        });
+    </script>
+    
+    <!-- Optional: Add Google Analytics -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    
+    <!-- Optional: Add Facebook Pixel -->
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', 'FACEBOOK_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    -->
+    
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Progressio S.A.S.",
+        "description": "Soluciones tecnológicas empresariales: comunicaciones unificadas, seguridad IT, automatización inteligente y desarrollo de software en Colombia.",
+        "url": "https://www.progressio.com.co",
+        "logo": "https://i.ibb.co/LzHWkGt/progressio-logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57-XXX-XXXXXXX",
+            "contactType": "customer service",
+            "email": "lealbornoz@progressio.com.co"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogotá",
+            "addressCountry": "CO"
+        },
+        "foundingDate": "2008",
+        "sameAs": [
+            "https://www.linkedin.com/company/progressio-comunicaciones"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "description": "Consultoría gratuita en soluciones tecnológicas empresariales"
+        }
+    }
+    </script>
+    
+    <style>
+        /* Additional CSS for form validation */
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+        
+        /* Loading state for submit button */
+        .submit-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Improve mobile scrolling */
+        @media (max-width: 768px) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .header,
+            .footer,
+            .contact-form,
+            .cta-section {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-blue: #0000FF;
+                --text-dark: #000000;
+                --bg-light: #FFFFFF;
+            }
+            
+            .service-card {
+                border: 2px solid #000000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        a:focus {
+            outline: 2px solid #2E5BBA;
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2E5BBA;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+</body>
+</html>
