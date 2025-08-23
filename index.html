@@ -7,10 +7,10 @@
     <meta name="description" content="Moderniza tu empresa con nuestras soluciones de comunicaciones unificadas, seguridad IT y automatización inteligente. +15 años transformando empresas en Colombia.">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="https://ibb.co/zWg0DFW1">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ibb.co/zWg0DFW1">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ibb.co/zWg0DFW1">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ibb.co/zWg0DFW1">
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/bgVs7d7/progressio-favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bgVs7d7/progressio-favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/bgVs7d7/progressio-favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/bgVs7d7/progressio-favicon-180.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +39,8 @@
             --bg-light: #F5F5F5;
             --success: #28A745;
             --white: #FFFFFF;
+            --accent-orange: #FF6B35;
+            --accent-orange-hover: #E55A2B;
         }
         
         body {
@@ -111,19 +113,6 @@
         .cta-button.secondary:hover {
             background: var(--accent-orange);
             color: var(--white);
-        }
-        
-        :root {
-            --primary-blue: #2E5BBA;
-            --secondary-blue: #4A90E2;
-            --dark-blue: #1E4A9A;
-            --text-dark: #4A4A4A;
-            --text-medium: #7A7A7A;
-            --bg-light: #F5F5F5;
-            --success: #28A745;
-            --white: #FFFFFF;
-            --accent-orange: #FF6B35;
-            --accent-orange-hover: #E55A2B;
         }
         
         /* Hero Section */
@@ -321,14 +310,6 @@
             font-size: 2.5rem;
             color: var(--white);
         }
-        
-        /* Specific icons for each service */
-        .service-communications i:before { content: "\f095"; } /* fa-phone-alt */
-        .service-security i:before { content: "\f3ed"; } /* fa-shield-alt */
-        .service-automation i:before { content: "\f544"; } /* fa-robot */
-        .service-software i:before { content: "\f121"; } /* fa-code */
-        .service-ecommerce i:before { content: "\f07a"; } /* fa-shopping-cart */
-        .service-infrastructure i:before { content: "\f6ff"; } /* fa-network-wired */
         
         .service-card h3 {
             font-family: 'Poppins', sans-serif;
@@ -560,24 +541,30 @@
             margin-top: 2rem;
         }
         
-                    @media (max-width: 1024px) {
-                .cta-button.header-cta {
-                    display: none; /* Ocultar en tablet */
-                }
-                
-                .logo img {
-                    height: 40px;
-                    max-width: 180px;
-                }
-                
-                .hero h1 {
-                    font-size: 3rem;
-                }
-                
-                .services-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-content .cta-button {
+                display: none !important;
             }
+            
+            .header-content {
+                justify-content: center;
+            }
+            
+            .logo img {
+                height: 40px;
+                max-width: 180px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
@@ -619,11 +606,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
             .section-title h2 {
                 font-size: 2rem;
             }
@@ -634,6 +616,16 @@
             
             .video-placeholder i {
                 font-size: 2.5rem;
+            }
+            
+            .logo img {
+                height: 35px;
+                max-width: 160px;
+            }
+            
+            .cta-button:not(.header-cta) {
+                width: 100%;
+                margin-bottom: 1rem;
             }
         }
         
@@ -678,6 +670,104 @@
         .service-card:nth-child(6) {
             animation-delay: 0.5s;
         }
+        
+        /* Additional CSS for form validation */
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+        
+        /* Loading state for submit button */
+        .submit-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Improve mobile scrolling */
+        @media (max-width: 768px) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .header,
+            .footer,
+            .contact-form,
+            .cta-section {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-blue: #0000FF;
+                --text-dark: #000000;
+                --bg-light: #FFFFFF;
+            }
+            
+            .service-card {
+                border: 2px solid #000000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        a:focus {
+            outline: 2px solid #2E5BBA;
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2E5BBA;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
     </style>
 </head>
 <body>
@@ -686,7 +776,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://ibb.co/zWg0DFW1" alt="Progressio - Soluciones Tecnológicas Empresariales">
+                    <img src="https://i.ibb.co/zWg0DFW/progressio-logo.png" alt="Progressio - Soluciones Tecnológicas Empresariales">
                 </div>
                 <a href="#contacto" class="cta-button header-cta">Solicitar Consulta</a>
             </div>
@@ -954,6 +1044,9 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Progressio S.A.S. - Todos los derechos reservados. Soluciones tecnológicas empresariales en Colombia.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                    Powered by <a href="https://ranknroll.co/" target="_blank" rel="follow" style="color: var(--secondary-blue); text-decoration: none; font-weight: 500;">Ranknroll.co agencia de marketing digital</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -1166,7 +1259,8 @@
         window.addEventListener('load', function() {
             // Preload critical images
             const criticalImages = [
-                'https://ibb.co/zWg0DFW1'
+                'https://i.ibb.co/zWg0DFW/progressio-logo.png',
+                'https://i.ibb.co/bgVs7d7/progressio-favicon.ico'
             ];
             
             criticalImages.forEach(src => {
@@ -1232,7 +1326,7 @@
         "name": "Progressio S.A.S.",
         "description": "Soluciones tecnológicas empresariales: comunicaciones unificadas, seguridad IT, automatización inteligente y desarrollo de software en Colombia.",
         "url": "https://www.progressio.com.co",
-        "logo": "https://ibb.co/zWg0DFW1",
+        "logo": "https://i.ibb.co/zWg0DFW/progressio-logo.png",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+57-XXX-XXXXXXX",
@@ -1254,105 +1348,5 @@
         }
     }
     </script>
-    
-    <style>
-        /* Additional CSS for form validation */
-        .form-group input.error,
-        .form-group select.error,
-        .form-group textarea.error {
-            border-color: #dc3545 !important;
-            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-        }
-        
-        /* Loading state for submit button */
-        .submit-btn:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        /* Improve mobile scrolling */
-        @media (max-width: 768px) {
-            body {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-        }
-        
-        /* Print styles */
-        @media print {
-            .header,
-            .footer,
-            .contact-form,
-            .cta-section {
-                display: none;
-            }
-            
-            body {
-                font-size: 12pt;
-                line-height: 1.5;
-            }
-            
-            h1, h2, h3 {
-                page-break-after: avoid;
-            }
-        }
-        
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            :root {
-                --primary-blue: #0000FF;
-                --text-dark: #000000;
-                --bg-light: #FFFFFF;
-            }
-            
-            .service-card {
-                border: 2px solid #000000;
-            }
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Focus styles for accessibility */
-        button:focus,
-        input:focus,
-        select:focus,
-        textarea:focus,
-        a:focus {
-            outline: 2px solid #2E5BBA;
-            outline-offset: 2px;
-        }
-        
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: #2E5BBA;
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            border-radius: 4px;
-            z-index: 10000;
-        }
-        
-        .skip-link:focus {
-            top: 6px;
-        }
-    </style>
 </body>
 </html>
