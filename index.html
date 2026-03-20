@@ -32,7 +32,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -245,60 +245,88 @@
         .header-nav a:hover { color: var(--emerald); }
 
         /* ===================== HERO ===================== */
+        /* ============================================================
+           HERO — SOC Dashboard Edition
+        ============================================================ */
         .hero {
-            background: var(--navy);
+            background: #080E1A;
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding: 6rem 0 5rem;
+            padding: 7rem 0 5rem;
         }
 
-        /* Dot-grid background */
+        /* Hex-grid background */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(rgba(16,185,129,.18) 1px, transparent 1px);
-            background-size: 36px 36px;
+            background-image:
+                linear-gradient(rgba(16,185,129,.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16,185,129,.06) 1px, transparent 1px);
+            background-size: 48px 48px;
             pointer-events: none;
         }
 
-        /* Gradient glow */
-        .hero::after {
-            content: '';
+        /* Ambient glow orbs */
+        .hero-glow-1 {
             position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(ellipse, rgba(16,185,129,.09) 0%, transparent 65%);
+            top: -15%;
+            right: 5%;
+            width: 700px; height: 700px;
+            background: radial-gradient(ellipse, rgba(16,185,129,.07) 0%, transparent 65%);
             pointer-events: none;
+        }
+        .hero-glow-2 {
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(ellipse, rgba(59,130,246,.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        /* Scanline overlay */
+        .hero-scanline {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,.04) 2px,
+                rgba(0,0,0,.04) 4px
+            );
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero-layout {
             display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 5rem;
+            grid-template-columns: 1fr 480px;
+            gap: 4rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
+        /* ---- Left: text ---- */
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: .5rem;
-            background: rgba(16,185,129,.12);
-            border: 1px solid rgba(16,185,129,.3);
-            color: var(--emerald-lt);
-            font-size: .8rem;
-            font-weight: 600;
-            letter-spacing: .06em;
+            background: rgba(16,185,129,.1);
+            border: 1px solid rgba(16,185,129,.28);
+            color: #34D399;
+            font-family: 'Space Mono', monospace;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .1em;
             text-transform: uppercase;
-            padding: .4rem 1rem;
-            border-radius: 50px;
+            padding: .35rem 1rem;
+            border-radius: 4px;
             margin-bottom: 1.75rem;
         }
 
@@ -306,174 +334,417 @@
             width: 7px; height: 7px;
             background: var(--emerald);
             border-radius: 50%;
-            animation: pulse-dot 2s infinite;
+            animation: pulse-dot 1.6s infinite;
+            box-shadow: 0 0 8px var(--emerald);
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: .5; transform: scale(.7); }
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px var(--emerald); }
+            50% { opacity: .5; transform: scale(.65); box-shadow: 0 0 3px var(--emerald); }
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-size: clamp(2.4rem, 4.5vw, 3.75rem);
             font-weight: 800;
             color: var(--white);
             margin-bottom: 1.5rem;
-            line-height: 1.12;
+            line-height: 1.1;
+            letter-spacing: -.02em;
         }
 
         .hero h1 em {
             font-style: normal;
-            color: var(--emerald);
+            background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-sub {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,.72);
-            line-height: 1.7;
-            margin-bottom: 2.25rem;
-            max-width: 560px;
+            font-size: 1.08rem;
+            color: rgba(255,255,255,.65);
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
         }
+
+        .hero-sub strong { color: rgba(255,255,255,.9); }
 
         .hero-ctas {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 3.5rem;
+            align-items: center;
         }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .78rem;
+            color: rgba(255,255,255,.38);
+            font-family: 'Space Mono', monospace;
+        }
+        .hero-trust svg { color: rgba(16,185,129,.6); flex-shrink: 0; }
 
         .hero-stats {
             display: flex;
             gap: 0;
-            border-top: 1px solid rgba(255,255,255,.1);
+            border-top: 1px solid rgba(255,255,255,.08);
             padding-top: 2rem;
         }
 
         .stat-item {
             flex: 1;
             padding-right: 2rem;
-            border-right: 1px solid rgba(255,255,255,.1);
+            border-right: 1px solid rgba(255,255,255,.08);
         }
         .stat-item:last-child { border-right: none; padding-right: 0; padding-left: 2rem; }
         .stat-item:not(:first-child):not(:last-child) { padding: 0 2rem; }
 
         .stat-num {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Mono', monospace;
             font-size: 2rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--emerald);
             line-height: 1;
-            margin-bottom: .25rem;
+            margin-bottom: .3rem;
+            text-shadow: 0 0 20px rgba(16,185,129,.4);
         }
 
         .stat-label {
-            font-size: .8rem;
-            color: rgba(255,255,255,.55);
+            font-size: .75rem;
+            color: rgba(255,255,255,.42);
             line-height: 1.4;
+            letter-spacing: .01em;
         }
 
-        /* Hero visual card */
+        /* ---- Right: SOC Dashboard ---- */
         .hero-visual {
             position: relative;
             z-index: 1;
         }
 
-        .hero-card {
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.1);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(6px);
+        .soc-panel {
+            background: rgba(12,18,35,.9);
+            border: 1px solid rgba(16,185,129,.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(16,185,129,.08),
+                0 24px 64px rgba(0,0,0,.5),
+                inset 0 1px 0 rgba(255,255,255,.06);
+            position: relative;
         }
 
-        .hero-card-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: .8rem;
-            font-weight: 600;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.45);
-            margin-bottom: 1.25rem;
-        }
-
-        .access-log {
+        /* Top status bar */
+        .soc-topbar {
+            background: rgba(16,185,129,.08);
+            border-bottom: 1px solid rgba(16,185,129,.15);
+            padding: .6rem 1.25rem;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .soc-topbar-left {
+            display: flex;
+            align-items: center;
             gap: .75rem;
         }
 
-        .log-item {
-            display: flex;
-            align-items: center;
-            gap: .875rem;
-            padding: .75rem 1rem;
-            border-radius: var(--radius-sm);
-            background: rgba(255,255,255,.04);
-            border: 1px solid rgba(255,255,255,.07);
+        .soc-dot-group { display: flex; gap: .35rem; }
+        .soc-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
         }
+        .soc-dot.red   { background: #FF5F57; }
+        .soc-dot.amber { background: #FFBD2E; }
+        .soc-dot.green { background: #28C840; }
 
-        .log-icon {
-            width: 36px; height: 36px;
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: .875rem;
-            flex-shrink: 0;
-        }
-
-        .log-icon.green { background: rgba(16,185,129,.15); color: var(--emerald); }
-        .log-icon.amber { background: rgba(245,158,11,.15); color: var(--amber); }
-        .log-icon.blue  { background: rgba(59,130,246,.15); color: #60A5FA; }
-
-        .log-info { flex: 1; min-width: 0; }
-
-        .log-name {
-            font-size: .825rem;
-            font-weight: 600;
-            color: rgba(255,255,255,.88);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-
-        .log-detail {
-            font-size: .72rem;
-            color: rgba(255,255,255,.4);
-        }
-
-        .log-status {
+        .soc-title {
+            font-family: 'Space Mono', monospace;
             font-size: .7rem;
-            font-weight: 700;
-            padding: .2rem .6rem;
-            border-radius: 4px;
-            flex-shrink: 0;
+            color: rgba(255,255,255,.5);
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
-        .log-status.ok { background: rgba(16,185,129,.18); color: var(--emerald-lt); }
-        .log-status.wait { background: rgba(245,158,11,.18); color: #FCD34D; }
-
-        .hero-card-footer {
-            margin-top: 1.5rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid rgba(255,255,255,.07);
+        .soc-status-live {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .live-badge {
-            display: flex; align-items: center; gap: .4rem;
-            font-size: .75rem; font-weight: 600;
+            gap: .4rem;
+            font-family: 'Space Mono', monospace;
+            font-size: .65rem;
             color: var(--emerald);
+            font-weight: 700;
         }
-
-        .live-dot {
+        .soc-live-dot {
             width: 6px; height: 6px;
             background: var(--emerald);
             border-radius: 50%;
-            animation: pulse-dot 1.5s infinite;
+            animation: pulse-dot 1.2s infinite;
+            box-shadow: 0 0 6px var(--emerald);
         }
 
-        .hero-card-sub {
-            font-size: .72rem;
+        .soc-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+
+        /* Metric pills row */
+        .soc-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .6rem;
+        }
+
+        .soc-metric {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 8px;
+            padding: .6rem .75rem;
+            text-align: center;
+        }
+
+        .soc-metric-val {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--emerald);
+            line-height: 1;
+            text-shadow: 0 0 12px rgba(16,185,129,.5);
+        }
+        .soc-metric-val.amber { color: #FCD34D; text-shadow: 0 0 12px rgba(252,211,77,.4); }
+        .soc-metric-val.blue  { color: #60A5FA; text-shadow: 0 0 12px rgba(96,165,250,.4); }
+
+        .soc-metric-key {
+            font-size: .6rem;
             color: rgba(255,255,255,.35);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: .2rem;
+        }
+
+        /* Floor plan mini widget */
+        .soc-floorplan {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 10px;
+            padding: .75rem;
+            position: relative;
+        }
+
+        .soc-floorplan-label {
+            font-family: 'Space Mono', monospace;
+            font-size: .6rem;
+            color: rgba(255,255,255,.35);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .6rem;
+        }
+
+        .floorplan-svg-wrap {
+            position: relative;
+            height: 90px;
+        }
+
+        .floorplan-svg-wrap svg { width: 100%; height: 100%; }
+
+        /* Sensor pulse rings */
+        @keyframes sensor-ping {
+            0%   { r: 4; opacity: .8; }
+            100% { r: 10; opacity: 0; }
+        }
+        .sensor-ping { animation: sensor-ping 2s ease-out infinite; }
+        .sensor-ping-2 { animation: sensor-ping 2s ease-out infinite .7s; }
+        .sensor-ping-3 { animation: sensor-ping 2s ease-out infinite 1.4s; }
+
+        /* Live log feed */
+        .soc-log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .6rem;
+        }
+
+        .soc-log-title {
+            font-family: 'Space Mono', monospace;
+            font-size: .6rem;
+            color: rgba(255,255,255,.35);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .soc-log-count {
+            font-family: 'Space Mono', monospace;
+            font-size: .6rem;
+            background: rgba(16,185,129,.15);
+            color: var(--emerald);
+            padding: .1rem .5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(16,185,129,.2);
+        }
+
+        .soc-log-feed {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            max-height: 180px;
+            overflow: hidden;
+        }
+
+        .log-entry {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem .7rem;
+            border-radius: 7px;
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.06);
+            transition: opacity .3s;
+        }
+
+        .log-entry.new-entry {
+            animation: slideInLog .4s ease-out forwards;
+        }
+
+        @keyframes slideInLog {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-icon-box {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: .7rem;
+            flex-shrink: 0;
+        }
+
+        .log-icon-box.g { background: rgba(16,185,129,.15); color: #34D399; }
+        .log-icon-box.a { background: rgba(245,158,11,.15);  color: #FCD34D; }
+        .log-icon-box.b { background: rgba(59,130,246,.15);  color: #93C5FD; }
+        .log-icon-box.r { background: rgba(239,68,68,.15);   color: #FCA5A5; }
+
+        .log-text { flex: 1; min-width: 0; }
+
+        .log-primary {
+            font-size: .72rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.85);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            line-height: 1.2;
+        }
+
+        .log-secondary {
+            font-family: 'Space Mono', monospace;
+            font-size: .58rem;
+            color: rgba(255,255,255,.32);
+        }
+
+        .log-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: .58rem;
+            font-weight: 700;
+            padding: .15rem .45rem;
+            border-radius: 3px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .log-badge.ok   { background: rgba(16,185,129,.18); color: #34D399; }
+        .log-badge.wait { background: rgba(245,158,11,.18); color: #FCD34D; }
+        .log-badge.deny { background: rgba(239,68,68,.18);  color: #FCA5A5; }
+
+        /* LPR strip */
+        .soc-lpr {
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 10px;
+            padding: .7rem .75rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .lpr-cam {
+            width: 56px; height: 38px;
+            background: #000;
+            border-radius: 5px;
+            border: 1px solid rgba(16,185,129,.2);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .lpr-scan-line {
+            position: absolute;
+            left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #10B981, transparent);
+            animation: scanDown 2s ease-in-out infinite;
+        }
+
+        @keyframes scanDown {
+            0%   { top: 0; opacity: 1; }
+            90%  { top: calc(100% - 2px); opacity: 1; }
+            100% { top: calc(100% - 2px); opacity: 0; }
+        }
+
+        .lpr-cam-icon {
+            font-size: .7rem;
+            color: rgba(16,185,129,.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .lpr-info { flex: 1; }
+
+        .lpr-label {
+            font-family: 'Space Mono', monospace;
+            font-size: .58rem;
+            color: rgba(255,255,255,.3);
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        .lpr-plate {
+            font-family: 'Space Mono', monospace;
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--emerald);
+            letter-spacing: .12em;
+            text-shadow: 0 0 10px rgba(16,185,129,.4);
+            line-height: 1.2;
+        }
+
+        .lpr-sub {
+            font-size: .6rem;
+            color: rgba(255,255,255,.3);
+        }
+
+        .lpr-status {
+            font-family: 'Space Mono', monospace;
+            font-size: .65rem;
+            font-weight: 700;
+            color: #34D399;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+        }
+        .lpr-status::before {
+            content: '';
+            width: 5px; height: 5px;
+            background: #34D399;
+            border-radius: 50%;
+            display: block;
+            animation: pulse-dot 1.2s infinite;
+            box-shadow: 0 0 5px #34D399;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .soc-panel { max-width: 480px; }
         }
 
         /* ===================== PROBLEMA ===================== */
@@ -1193,95 +1464,200 @@
     <!-- ===================== HERO ===================== -->
     <main>
     <section class="hero" aria-label="Propuesta de valor">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-scanline"></div>
         <div class="container">
             <div class="hero-layout">
+
+                <!-- LEFT: copy -->
                 <div class="hero-text">
                     <div class="hero-badge">
                         <span class="dot"></span>
-                        Control de acceso inteligente · Colombia
+                        SISTEMA_ACTIVO · COLOMBIA · 24/7
                     </div>
 
-                    <h1>Su edificio no necesita portero.<br><em>Necesita inteligencia.</em></h1>
+                    <h1>Su edificio no<br>necesita portero.<br><em>Necesita inteligencia.</em></h1>
 
                     <p class="hero-sub">
-                        Automatizamos el <strong style="color:rgba(255,255,255,.9)">control de acceso</strong> de conjuntos residenciales y edificios en Colombia. Sin nómina, sin turnos, sin interrupciones.
+                        Automatizamos el <strong>control de acceso</strong> de conjuntos residenciales y edificios. Sin nómina, sin turnos, sin interrupciones — y sin obras mayores.
                     </p>
 
                     <div class="hero-ctas">
                         <a href="#contacto" class="btn btn-primary">
                             <i class="fas fa-calendar-check"></i>
-                            Quiero una consulta gratuita
+                            Diagnóstico gratuito
                         </a>
                         <a href="#solucion" class="btn btn-outline-white">
                             Ver cómo funciona
                         </a>
+                        <span class="hero-trust">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Sin costo de instalación inicial
+                        </span>
                     </div>
 
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <div class="stat-num">70%</div>
-                            <div class="stat-label">Reducción en costos<br>de vigilancia</div>
+                            <div class="stat-num" id="stat1">0%</div>
+                            <div class="stat-label">Ahorro en costos<br>de vigilancia</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-num">5 días</div>
-                            <div class="stat-label">Instalación<br>hábiles</div>
+                            <div class="stat-num" id="stat2">0</div>
+                            <div class="stat-label">Días promedio<br>de instalación</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-num">+50</div>
+                            <div class="stat-num" id="stat3">0</div>
                             <div class="stat-label">Edificios<br>automatizados</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Visual card: simulated access panel -->
+                <!-- RIGHT: SOC Dashboard -->
                 <div class="hero-visual">
-                    <div class="hero-card">
-                        <div class="hero-card-title">Panel de accesos — Torre A</div>
-                        <div class="access-log">
-                            <div class="log-item">
-                                <div class="log-icon green"><i class="fas fa-car"></i></div>
-                                <div class="log-info">
-                                    <div class="log-name">Vehículo · EBC 234</div>
-                                    <div class="log-detail">Reconocimiento de placa · hace 2 min</div>
+                    <div class="soc-panel">
+
+                        <!-- Top bar -->
+                        <div class="soc-topbar">
+                            <div class="soc-topbar-left">
+                                <div class="soc-dot-group">
+                                    <div class="soc-dot red"></div>
+                                    <div class="soc-dot amber"></div>
+                                    <div class="soc-dot green"></div>
                                 </div>
-                                <div class="log-status ok">Autorizado</div>
+                                <span class="soc-title">Progressio · Centro de Control</span>
                             </div>
-                            <div class="log-item">
-                                <div class="log-icon blue"><i class="fas fa-user"></i></div>
-                                <div class="log-info">
-                                    <div class="log-name">Visitante · Apto 602</div>
-                                    <div class="log-detail">Video portero · hace 8 min</div>
-                                </div>
-                                <div class="log-status ok">Autorizado</div>
-                            </div>
-                            <div class="log-item">
-                                <div class="log-icon amber"><i class="fas fa-bell"></i></div>
-                                <div class="log-info">
-                                    <div class="log-name">Visitante · Sin autorización previa</div>
-                                    <div class="log-detail">Notificación enviada al residente</div>
-                                </div>
-                                <div class="log-status wait">En espera</div>
-                            </div>
-                            <div class="log-item">
-                                <div class="log-icon green"><i class="fas fa-walking"></i></div>
-                                <div class="log-info">
-                                    <div class="log-name">Residente · Tag RFID</div>
-                                    <div class="log-detail">Acceso peatonal · hace 14 min</div>
-                                </div>
-                                <div class="log-status ok">Autorizado</div>
+                            <div class="soc-status-live">
+                                <span class="soc-live-dot"></span>
+                                EN VIVO
                             </div>
                         </div>
-                        <div class="hero-card-footer">
-                            <div class="live-badge">
-                                <span class="live-dot"></span>
-                                Sistema activo 24/7
+
+                        <div class="soc-body">
+
+                            <!-- Metrics -->
+                            <div class="soc-metrics">
+                                <div class="soc-metric">
+                                    <div class="soc-metric-val" id="m-doors">12</div>
+                                    <div class="soc-metric-key">Accesos activos</div>
+                                </div>
+                                <div class="soc-metric">
+                                    <div class="soc-metric-val amber" id="m-events">47</div>
+                                    <div class="soc-metric-key">Eventos hoy</div>
+                                </div>
+                                <div class="soc-metric">
+                                    <div class="soc-metric-val blue">99.8%</div>
+                                    <div class="soc-metric-key">Uptime</div>
+                                </div>
                             </div>
-                            <span class="hero-card-sub">Monitoreo remoto · Progressio</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                            <!-- Floor plan -->
+                            <div class="soc-floorplan">
+                                <div class="soc-floorplan-label">Planta baja — sensores activos</div>
+                                <div class="floorplan-svg-wrap">
+                                    <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Building outline -->
+                                        <rect x="10" y="10" width="300" height="70" rx="3" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                                        <!-- Interior walls -->
+                                        <line x1="100" y1="10" x2="100" y2="80" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+                                        <line x1="200" y1="10" x2="200" y2="80" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+                                        <line x1="100" y1="45" x2="200" y2="45" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+                                        <!-- Door gaps -->
+                                        <line x1="10" y1="38" x2="10" y2="52" stroke="#080E1A" stroke-width="3"/>
+                                        <line x1="310" y1="38" x2="310" y2="52" stroke="#080E1A" stroke-width="3"/>
+                                        <line x1="95" y1="38" x2="105" y2="38" stroke="#080E1A" stroke-width="3"/>
+                                        <!-- Labels -->
+                                        <text x="55" y="35" fill="rgba(255,255,255,.2)" font-size="7" font-family="monospace">LOBBY</text>
+                                        <text x="140" y="33" fill="rgba(255,255,255,.2)" font-size="7" font-family="monospace">ZONA A</text>
+                                        <text x="240" y="33" fill="rgba(255,255,255,.2)" font-size="7" font-family="monospace">PARQUEADERO</text>
+
+                                        <!-- Sensor: main entrance -->
+                                        <circle cx="10" cy="45" r="5" fill="#10B981" opacity=".9"/>
+                                        <circle cx="10" cy="45" r="4" fill="none" stroke="#10B981" stroke-width="1.5" class="sensor-ping"/>
+
+                                        <!-- Sensor: lobby door -->
+                                        <circle cx="100" cy="38" r="5" fill="#10B981" opacity=".9"/>
+                                        <circle cx="100" cy="38" r="4" fill="none" stroke="#10B981" stroke-width="1.5" class="sensor-ping-2"/>
+
+                                        <!-- Sensor: parking -->
+                                        <circle cx="310" cy="45" r="5" fill="#FCD34D" opacity=".9"/>
+                                        <circle cx="310" cy="45" r="4" fill="none" stroke="#FCD34D" stroke-width="1.5" class="sensor-ping-3"/>
+
+                                        <!-- Camera icons -->
+                                        <text x="48" y="72" fill="rgba(16,185,129,.5)" font-size="8" font-family="monospace">📷</text>
+                                        <text x="248" y="72" fill="rgba(16,185,129,.5)" font-size="8" font-family="monospace">📷</text>
+
+                                        <!-- Active path highlight -->
+                                        <path d="M10,45 L100,38" stroke="#10B981" stroke-width="1" stroke-dasharray="3,3" opacity=".35">
+                                            <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Live log feed -->
+                            <div>
+                                <div class="soc-log-header">
+                                    <span class="soc-log-title">Registro de accesos en tiempo real</span>
+                                    <span class="soc-log-count" id="log-counter">HOY: 47</span>
+                                </div>
+                                <div class="soc-log-feed" id="log-feed">
+                                    <div class="log-entry">
+                                        <div class="log-icon-box g"><i class="fas fa-car"></i></div>
+                                        <div class="log-text">
+                                            <div class="log-primary">Vehículo · EBC 234</div>
+                                            <div class="log-secondary">LPR · hace 1 min</div>
+                                        </div>
+                                        <span class="log-badge ok">AUTORIZADO</span>
+                                    </div>
+                                    <div class="log-entry">
+                                        <div class="log-icon-box b"><i class="fas fa-user"></i></div>
+                                        <div class="log-text">
+                                            <div class="log-primary">Visitante · Apto 602</div>
+                                            <div class="log-secondary">Video portero · hace 4 min</div>
+                                        </div>
+                                        <span class="log-badge ok">AUTORIZADO</span>
+                                    </div>
+                                    <div class="log-entry">
+                                        <div class="log-icon-box a"><i class="fas fa-bell"></i></div>
+                                        <div class="log-text">
+                                            <div class="log-primary">Acceso no registrado</div>
+                                            <div class="log-secondary">Entrada principal · hace 7 min</div>
+                                        </div>
+                                        <span class="log-badge wait">PENDIENTE</span>
+                                    </div>
+                                    <div class="log-entry">
+                                        <div class="log-icon-box g"><i class="fas fa-id-card"></i></div>
+                                        <div class="log-text">
+                                            <div class="log-primary">Residente · Torre B · Apto 401</div>
+                                            <div class="log-secondary">Tag RFID · hace 11 min</div>
+                                        </div>
+                                        <span class="log-badge ok">AUTORIZADO</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LPR camera strip -->
+                            <div class="soc-lpr">
+                                <div class="lpr-cam">
+                                    <div class="lpr-scan-line"></div>
+                                    <i class="fas fa-camera lpr-cam-icon"></i>
+                                </div>
+                                <div class="lpr-info">
+                                    <div class="lpr-label">Reconocimiento de placa · Cámara 01</div>
+                                    <div class="lpr-plate" id="lpr-plate">EBC·234</div>
+                                    <div class="lpr-sub">Confianza: 98.4% · Toyota Corolla Blanco</div>
+                                </div>
+                                <div class="lpr-status">MATCH</div>
+                            </div>
+
+                        </div><!-- /soc-body -->
+                    </div><!-- /soc-panel -->
+                </div><!-- /hero-visual -->
+
+            </div><!-- /hero-layout -->
+        </div><!-- /container -->
+
     </section>
 
     <!-- ===================== PROBLEMA ===================== -->
@@ -1705,6 +2081,90 @@
                 }
             });
         });
+    </script>
+
+    <!-- ============ HERO ANIMATIONS ============ -->
+    <script>
+    (function() {
+        /* --- Count-up stats --- */
+        function countUp(el, target, suffix, duration) {
+            let start = 0, step = target / (duration / 16);
+            let t = setInterval(function() {
+                start = Math.min(start + step, target);
+                el.textContent = (suffix === '%' ? Math.round(start) + '%'
+                    : suffix === 'd' ? Math.round(start) + ' días'
+                    : '+' + Math.round(start));
+                if (start >= target) clearInterval(t);
+            }, 16);
+        }
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    countUp(document.getElementById('stat1'), 70, '%', 1400);
+                    countUp(document.getElementById('stat2'), 5,  'd', 900);
+                    countUp(document.getElementById('stat3'), 50, '+', 1200);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var heroEl = document.querySelector('.hero');
+        if (heroEl) observer.observe(heroEl);
+
+        /* --- Live events counter --- */
+        var eventCount = 47;
+        setInterval(function() {
+            eventCount++;
+            var el = document.getElementById('m-events');
+            var c  = document.getElementById('log-counter');
+            if (el) el.textContent = eventCount;
+            if (c)  c.textContent  = 'HOY: ' + eventCount;
+        }, 7000);
+
+        /* --- Live log feed --- */
+        var logEvents = [
+            { icon: 'g', fa: 'fa-car',       primary: 'Vehículo · KLM 891',          secondary: 'LPR · ahora',             badge: 'ok',   label: 'AUTORIZADO' },
+            { icon: 'b', fa: 'fa-user',       primary: 'Visitante · Apto 304',         secondary: 'Video portero · ahora',   badge: 'ok',   label: 'AUTORIZADO' },
+            { icon: 'g', fa: 'fa-id-card',    primary: 'Residente · Torre A · Apto 201', secondary: 'Tag RFID · ahora',      badge: 'ok',   label: 'AUTORIZADO' },
+            { icon: 'a', fa: 'fa-bell',       primary: 'Acceso no identificado',       secondary: 'Parqueadero · ahora',     badge: 'wait', label: 'PENDIENTE'  },
+            { icon: 'g', fa: 'fa-car',        primary: 'Vehículo · QRS 445',           secondary: 'LPR · ahora',             badge: 'ok',   label: 'AUTORIZADO' },
+            { icon: 'b', fa: 'fa-walking',    primary: 'Mensajero · Lobby',            secondary: 'Video portero · ahora',   badge: 'ok',   label: 'AUTORIZADO' },
+            { icon: 'r', fa: 'fa-times-circle', primary: 'Placa no registrada · ZZZ 000', secondary: 'Cámara 01 · ahora',   badge: 'deny', label: 'DENEGADO'   },
+        ];
+        var logIdx = 0;
+
+        var plates = ['KLM·891','QRS·445','ABD·712','TUV·303','XYZ·567'];
+        var plateIdx = 0;
+
+        setInterval(function() {
+            var feed = document.getElementById('log-feed');
+            if (!feed) return;
+
+            var ev  = logEvents[logIdx % logEvents.length];
+            logIdx++;
+
+            var entry = document.createElement('div');
+            entry.className = 'log-entry new-entry';
+            entry.innerHTML =
+                '<div class="log-icon-box ' + ev.icon + '"><i class="fas ' + ev.fa + '"></i></div>' +
+                '<div class="log-text">' +
+                    '<div class="log-primary">' + ev.primary + '</div>' +
+                    '<div class="log-secondary">' + ev.secondary + '</div>' +
+                '</div>' +
+                '<span class="log-badge ' + ev.badge + '">' + ev.label + '</span>';
+
+            feed.insertBefore(entry, feed.firstChild);
+            if (feed.children.length > 4) feed.removeChild(feed.lastChild);
+
+            /* rotate LPR plate */
+            if (ev.icon === 'g' && ev.fa === 'fa-car') {
+                var pl = document.getElementById('lpr-plate');
+                if (pl) pl.textContent = plates[plateIdx % plates.length].replace('·', '·');
+                plateIdx++;
+            }
+        }, 5000);
+    })();
     </script>
 
     <!-- Google Analytics (reemplazar GA_MEASUREMENT_ID) -->
